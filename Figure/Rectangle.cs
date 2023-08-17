@@ -30,17 +30,17 @@ namespace Figure
             set => height = value < 0 ? -value : value;
         }
 
-        public override double Area()
+        public override double getArea()
         {
             return width * height;
         }
 
-        public override double Perimeter()
+        public override double getPerimeter()
         {
             return width * 2 + height * 2;
         }
 
-        public override string ShapeName()
+        public override string getName()
         {
             return "Прямоугольник";
         }

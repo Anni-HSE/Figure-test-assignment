@@ -46,63 +46,70 @@ namespace Tests
         public void TestTrianglePerimetrEqual()
         {
             Triangle triangle = new Triangle(3, 4, 5);
-            Assert.That(triangle.Perimeter(), Is.EqualTo(12));
+            Assert.That(triangle.getPerimeter(), Is.EqualTo(12));
         }
 
         [Test]
         public void TestTriangleAreaEqual()
         {
             Triangle triangle = new Triangle(3, 4, 5);
-            Assert.That(triangle.Area(), Is.EqualTo(6));
+            Assert.That(triangle.getArea(), Is.EqualTo(6));
         }
 
         [Test]
-        public void TestTriangleShapeName1()
+        public void TestTriangleShapeName()
         {
             Triangle triangle = new Triangle(3, 4, 5);
-            Assert.That(triangle.ShapeName(), Is.EqualTo("Прямоугольный треугольник"));
+            Assert.That(triangle.getName(), Is.EqualTo("Прямоугольный разносторонний треугольник"));
         }
 
         [Test]
-        public void TestTriangleShapeName2()
-        {
-            Triangle triangle = new Triangle(2, 2, Math.Sqrt(8));
-            Assert.That(triangle.ShapeName(), Is.EqualTo("Равнобедренный прямоугольный треугольник"));
-        }
-
-        [Test]
-        public void TestTriangleShapeName3()
-        {
-            Triangle triangle = new Triangle(20, 19, 37);
-            Assert.That(triangle.ShapeName(), Is.EqualTo("Тупоугольный треугольник"));
-        }
-
-        [Test]
-        public void TestTriangleShapeName4()
-        {
-            Triangle triangle = new Triangle(20, 20, 37);
-            Assert.That(triangle.ShapeName(), Is.EqualTo("Равнобедренный тупоугольный треугольник"));
-        }
-
-        [Test]
-        public void TestTriangleShapeName5()
+        public void TestTriangleType1()
         {
             Triangle triangle = new Triangle(1, 1, 1);
-            Assert.That(triangle.ShapeName(), Is.EqualTo("Равносторонний треугольник"));
+            Assert.That(triangle.getTriangleType(), Is.EqualTo("Равносторонний"));
         }
 
         [Test]
-        public void TestTriangleShapeName6()
+        public void TestTriangleType2()
         {
-            Triangle triangle = new Triangle(2, 2, 1);
-            Assert.That(triangle.ShapeName(), Is.EqualTo("Равнобедренный остроугольный треугольник"));
+            Triangle triangle = new Triangle(20, 20, 37);
+            Assert.That(triangle.getTriangleType(), Is.EqualTo("Равнобедренный"));
         }
 
         [Test]
-        public void TestTriangleShapeName7()
+        public void TestTriangleType3()
         {
             Triangle triangle = new Triangle(6, 5, 4);
-            Assert.That(triangle.ShapeName(), Is.EqualTo("Остроугольный треугольник"));
+            Assert.That(triangle.getTriangleType(), Is.EqualTo("Разносторонний"));
+        }
+
+        [Test]
+        public void TestgetSigCosSelectSide()
+        {
+            Triangle triangle = new Triangle(3, 4, 5);
+            Assert.That(triangle.getSigCosSelectSide(triangle.SideC), Is.EqualTo(0));
+        }
+
+        [Test]
+        public void TestgetTriangleAngleType1()
+        {
+            Triangle triangle = new Triangle(2, 2, 1);
+            Assert.That(triangle.getTriangleAngleType(), Is.EqualTo("Остроугольный"));
+        }
+
+        [Test]
+        public void TestgetTriangleAngleType2()
+        {
+            Triangle triangle = new Triangle(3, 4, 5);
+            Assert.That(triangle.getTriangleAngleType(), Is.EqualTo("Прямоугольный"));
+        }
+
+        [Test]
+        public void TestgetTriangleAngleType3()
+        {
+            Triangle triangle = new Triangle(20, 20, 37);
+            Assert.That(triangle.getTriangleAngleType(), Is.EqualTo("Тупоугольный"));
         }
     }
 }
